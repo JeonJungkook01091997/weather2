@@ -1,0 +1,208 @@
+
+
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+ /** background: rgba(0,0,0,.5);*/
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label
+ {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+body 
+{
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+
+
+}
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto; 
+  top: 0;  
+  right: 0; 
+  bottom: 0;
+  left: 0; 
+  border-radius: 3px;
+}
+.center h1{
+  text-align:center;
+  color:darkred;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; 
+    border-color: rgb(66, 62, 117);
+   
+    border-style: solid;
+    border-radius: 30px; border-width: 10px;
+    background-color: #5c5094;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #a7f304;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100px;
+    padding: 10px; text-align: center;
+    margin-top: 10px; align-items: center;
+    font-size: 16px; align-self: center;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(19, 54, 226);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+ 
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ 
+  
+  
+  
+  .result-container {   
+
+     color:cornsilk; background-color: #a7f304;
+    margin: 20px;  border-radius: 10px; 
+   padding:10px;
+   display:row; flex-wrap:wrap; justify-content:center; ;
+  }
+  
+ 
+  .result-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .result-container h1 {
+    font-size: 36px;
+  }
+  
+  .result-container p {
+    font-size: 18px;
+  }
+  
+ 
+  
+  

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WEATHER</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="center">
+    <h1 style="text-align: center; font-size: large;">WEATHER APP</h1>
+    <div class="bottom" style="padding-top: 30px; display: flex; flex-direction: row; justify-content: center;">
+      <div class="login-box" style="display: flex; flex-direction: row; gap: 40px; flex-wrap: wrap-reverse;">
+        <div class="container">
+          <form id="cityForm">
+            <div class="user-box">
+              <input id="city" type="text" name="cityname" required="">
+              <label for="city">City Name</label>
+              <button type="submit">GO</button>
+            </div>
+          </form>
+          <div class="button-container">
+            <button onclick="getUserLocation()">Get Weather for My Location</button>
+          </div>
+        </div>
+        <div id="weatherContainer" style="margin-top: 10px; background-color: #5c5094; display: none; flex-direction: column; align-items: center; border-color: rgb(66, 62, 117); border-style: solid; padding: 20px; border-radius: 30px; border-width: 10px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const appkey = "fdcb5b9745097d2dc601e7663dca0bed";
+
+    // Function to fetch weather data from the server
+    function fetchWeatherData(weatherUrl) {
+      fetch(weatherUrl)
+        .then(response => response.text())
+        .then(data => {
+          const weatherContainer = document.getElementById('weatherContainer');
+          weatherContainer.innerHTML = data;
+          weatherContainer.style.display = 'flex'; // Show the weather container when data is available
+        })
+        .catch(error => console.error("Error fetching weather data:", error));
+    }
+
+    // Event listener for form submission
+    document.getElementById('cityForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const city = document.getElementById('city').value;
+      const weatherUrl = `/weather/city/${city}`;
+      fetchWeatherData(weatherUrl);
+    });
+
+    // Function to get user's location
+    function getUserLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showWeatherForLocation, showError);
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
+    }
+
+    // Show weather for user's location
+    function showWeatherForLocation(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const weatherUrl = `/weather/${latitude}/${longitude}`;
+      fetchWeatherData(weatherUrl);
+    }
+
+    // Error handler for geolocation
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          console.log("User denied the request for Geolocation.");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.log("Location information is unavailable.");
+          break;
+        case error.TIMEOUT:
+          console.log("The request to get user location timed out.");
+          break;
+        case error.UNKNOWN_ERROR:
+          console.log("An unknown error occurred.");
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
